@@ -1,11 +1,12 @@
 import { IQuestion } from "../routes/Pages/Question";
 import { useRecoilValue, useSetRecoilState } from "recoil";
-import { CountState } from "../atoms";
+import { AnswerState, CountState } from "../atoms";
 import styled from "styled-components";
 import Multiple from "./Multiple";
 import Ox from "./Ox";
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import NextButton from "./NextButton";
 export default function Quiz({
   category,
   type,
@@ -16,12 +17,10 @@ export default function Quiz({
 }: IQuestion) {
   const navigate = useNavigate();
   const count = useRecoilValue(CountState);
-  const setCount = useSetRecoilState(CountState);
+
   const [checked, setChecked] = useState<null | number>(null);
-  const [isAnswered, setIsAnswered] = useState(true);
-  const onClick = () => {
-    setCount((oldcount) => oldcount + 1);
-  };
+  const [isAnswered, setIsAnswered] = useState(false);
+  const [isCorrect, setIsCorrect] = useState(null);
   return (
     <Card>
       <h3>{count}/10</h3>
@@ -30,21 +29,24 @@ export default function Quiz({
         <Caption>{category}</Caption>
       </CaptionDiv>
       <h1>{question}</h1>
-      {type === "boolean" ? <Ox /> : <Multiple />}
-      {isAnswered === false ? (
-        <caption style={{ color: "#33b54a" }}>Correct!</caption>
+      {type === "boolean" ? (
+        <Ox
+          correct_answer={correct_answer}
+          setIsAnswered={setIsAnswered}
+          setIsCorrect={setIsCorrect}
+        />
       ) : (
+        <Multiple />
+      )}
+      {isCorrect === true && (
+        <caption style={{ color: "#33b54a" }}>Correct!</caption>
+      )}
+      {isCorrect === false && (
         <caption style={{ color: "#ff1d25" }}>
           Answer was '{correct_answer}' :P
         </caption>
       )}
-      {isAnswered && count !== 10 ? (
-        <Button onClick={onClick}>Next Question!</Button>
-      ) : (
-        <Link to="/result">
-          <Button>Result</Button>
-        </Link>
-      )}
+      {isAnswered && <NextButton />}
     </Card>
   );
 }
@@ -74,3 +76,9 @@ export const Button = styled.div`
   border-radius: 10px;
   cursor: pointer;
 `;
+
+/*(
+        <caption style={{ color: "#ff1d25" }}>
+          Answer was '{correct_answer}' :P
+        </caption>
+      ) */

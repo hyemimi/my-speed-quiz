@@ -1,10 +1,28 @@
 import styled from "styled-components";
+import { useSetRecoilState } from "recoil";
+import { AnswerState } from "../atoms";
 
-export default function Ox() {
+export default function Ox({
+  correct_answer,
+  setIsCorrect,
+  setIsAnswered,
+}: any) {
+  const onClick = (e: any) => {
+    if (e.currentTarget.value === correct_answer) {
+      setIsCorrect(true);
+    } else {
+      setIsCorrect(false);
+    }
+    setIsAnswered(true);
+  };
   return (
     <Div>
-      <Box color="green">True</Box>
-      <Box>False</Box>
+      <Box value="True" onClick={onClick} color="green">
+        True
+      </Box>
+      <Box value="False" onClick={onClick}>
+        False
+      </Box>
     </Div>
   );
 }
@@ -14,7 +32,7 @@ const Div = styled.div`
   justify-content: space-around;
   margin: 70px;
 `;
-const Box = styled.div`
+const Box = styled.div<{ value: string }>`
   text-align: center;
   align-items: center;
   width: 300px;
