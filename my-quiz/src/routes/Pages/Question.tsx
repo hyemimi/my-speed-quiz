@@ -34,6 +34,7 @@ function Question() {
 
 export default Question;
 const Wrapper = styled.div`
-  width: 700px;
-  max-width: 700px;
+  width: 1000px;
+  height: 700px;
+  max-width: 1000px;
 `;

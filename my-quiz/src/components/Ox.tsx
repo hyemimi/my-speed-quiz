@@ -34,13 +34,15 @@ export default function Ox({
 const Div = styled.div`
   display: flex;
   justify-content: space-around;
-  margin: 70px;
+  width: 800px;
+  margin: 80px;
 `;
+
 const Box = styled.div`
   text-align: center;
   align-items: center;
-  width: 300px;
-  height: 100px;
+  width: 200px;
+  height: 80px;
   background-color: ${(props) => (props.color ? props.color : "red")};
   cursor: pointer;
   font-size: 40px;

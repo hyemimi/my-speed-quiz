@@ -23,12 +23,14 @@ export default function Quiz({
   const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
   return (
     <Card>
-      <h3>{count}/10</h3>
-      <CaptionDiv>
-        <Caption>{difficulty}</Caption>
-        <Caption>{category}</Caption>
-      </CaptionDiv>
-      <h1>{question}</h1>
+      <Header>
+        <H3>({count}/10)</H3>
+        <CaptionDiv>
+          <Caption>{difficulty}</Caption>
+          <Caption>{category}</Caption>
+        </CaptionDiv>
+        <h1>{question}</h1>
+      </Header>
       {type === "boolean" ? (
         <Ox
           correct_answer={correct_answer}
@@ -63,10 +65,21 @@ const Card = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
+`;
+
+const Header = styled.div`
+  height: 250px;
+  width: 1000px;
+  margin-bottom: 40px;
 `;
 const CaptionDiv = styled.div`
   display: flex;
-  margin: 0 auto;
+  margin-bottom: 10px;
+`;
+const H3 = styled.h3`
+  padding: 10px;
+  margin: 30px;
 `;
 const Caption = styled.div`
   width: 100%;

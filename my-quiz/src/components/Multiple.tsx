@@ -42,7 +42,7 @@ export default function Multiple({
 const Div = styled.div`
   display: grid;
   justify-content: space-around;
-  margin: 70px;
+  margin: 30px;
   grid-template-columns: repeat(2, 1fr);
 `;
 
