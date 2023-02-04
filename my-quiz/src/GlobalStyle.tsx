@@ -77,5 +77,8 @@ caption{
     font-family: 'Noto Sans KR:wght@500', sans-serif;
     font-size : 19px;
 }
+button {
+  border : ${(props) => props.theme.Primary_1};
+}
 
 `;

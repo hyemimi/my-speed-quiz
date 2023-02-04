@@ -1,20 +1,23 @@
 import styled from "styled-components";
 import { useSetRecoilState } from "recoil";
-import { AnswerState } from "../atoms";
+import { AnswerState, CorrectState } from "../atoms";
 
 export default function Ox({
   correct_answer,
   setIsCorrect,
   setIsAnswered,
 }: any) {
+  const setCorrect = useSetRecoilState(CorrectState);
   const onClick = (e: any) => {
     if (e.currentTarget.value === correct_answer) {
       setIsCorrect(true);
+      setCorrect((prev) => prev + 1);
     } else {
       setIsCorrect(false);
     }
     setIsAnswered(true);
   };
+
   return (
     <Div>
       <Box value="True" onClick={onClick} color="green">

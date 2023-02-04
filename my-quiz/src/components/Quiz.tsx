@@ -19,8 +19,8 @@ export default function Quiz({
   const count = useRecoilValue(CountState);
 
   const [checked, setChecked] = useState<null | number>(null);
-  const [isAnswered, setIsAnswered] = useState(false);
-  const [isCorrect, setIsCorrect] = useState(null);
+  const [isAnswered, setIsAnswered] = useState<boolean | null>(false);
+  const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
   return (
     <Card>
       <h3>{count}/10</h3>
@@ -36,7 +36,12 @@ export default function Quiz({
           setIsCorrect={setIsCorrect}
         />
       ) : (
-        <Multiple />
+        <Multiple
+          incorrect_answers={incorrect_answers}
+          correct_answer={correct_answer}
+          setIsAnswered={setIsAnswered}
+          setIsCorrect={setIsCorrect}
+        />
       )}
       {isCorrect === true && (
         <caption style={{ color: "#33b54a" }}>Correct!</caption>
@@ -76,9 +81,3 @@ export const Button = styled.div`
   border-radius: 10px;
   cursor: pointer;
 `;
-
-/*(
-        <caption style={{ color: "#ff1d25" }}>
-          Answer was '{correct_answer}' :P
-        </caption>
-      ) */
