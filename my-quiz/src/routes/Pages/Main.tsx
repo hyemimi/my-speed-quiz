@@ -1,10 +1,12 @@
 import styled from "styled-components";
-
+import { Link } from "react-router-dom";
 function Main() {
   return (
     <Container>
       <h1>프로그라피 8기 과제 퀴즈</h1>
-      <Button>시작하기!</Button>
+      <Link to={"/question"}>
+        <Button>시작하기!</Button>
+      </Link>
     </Container>
   );
 }

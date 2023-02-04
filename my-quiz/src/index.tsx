@@ -4,6 +4,7 @@ import App from "./App";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ThemeProvider } from "styled-components";
 import { Theme } from "./theme";
+import { RecoilRoot } from "recoil";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -11,10 +12,12 @@ const root = ReactDOM.createRoot(
 const queryClient = new QueryClient();
 root.render(
   <React.StrictMode>
-    <ThemeProvider theme={Theme}>
-      <QueryClientProvider client={queryClient}>
-        <App />
-      </QueryClientProvider>
-    </ThemeProvider>
+    <RecoilRoot>
+      <ThemeProvider theme={Theme}>
+        <QueryClientProvider client={queryClient}>
+          <App />
+        </QueryClientProvider>
+      </ThemeProvider>
+    </RecoilRoot>
   </React.StrictMode>
 );
