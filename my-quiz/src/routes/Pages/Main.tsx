@@ -1,6 +1,16 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { useSetRecoilState } from "recoil";
+import { CorrectState, CountState } from "../../atoms";
+import { useEffect } from "react";
 function Main() {
+  const setCorrect = useSetRecoilState(CorrectState);
+  const setCount = useSetRecoilState(CountState);
+
+  useEffect(() => {
+    setCorrect(0);
+    setCount(1);
+  }, []);
   return (
     <Container>
       <h1>프로그라피 8기 과제 퀴즈</h1>

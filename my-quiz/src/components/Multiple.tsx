@@ -6,22 +6,26 @@ interface IMultiple {
   correct_answer: string;
   setIsAnswered: any;
   setIsCorrect: any;
+  isAnswered: any;
 }
 export default function Multiple({
   incorrect_answers,
   correct_answer,
   setIsAnswered,
   setIsCorrect,
+  isAnswered,
 }: IMultiple) {
   const setCorrect = useSetRecoilState(CorrectState);
   const onClick = (answer: string) => {
-    if (answer === correct_answer) {
-      setIsCorrect(true);
-      setCorrect((prev) => prev + 1);
-    } else {
-      setIsCorrect(false);
+    if (isAnswered === false) {
+      if (answer === correct_answer) {
+        setIsCorrect(true);
+        setCorrect((prev) => prev + 1);
+      } else {
+        setIsCorrect(false);
+      }
+      setIsAnswered(true);
     }
-    setIsAnswered(true);
   };
   return (
     <Div>

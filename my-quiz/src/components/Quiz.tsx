@@ -34,6 +34,7 @@ export default function Quiz({
           correct_answer={correct_answer}
           setIsAnswered={setIsAnswered}
           setIsCorrect={setIsCorrect}
+          isAnswered={isAnswered}
         />
       ) : (
         <Multiple
@@ -41,6 +42,7 @@ export default function Quiz({
           correct_answer={correct_answer}
           setIsAnswered={setIsAnswered}
           setIsCorrect={setIsCorrect}
+          isAnswered={isAnswered}
         />
       )}
       {isCorrect === true && (
