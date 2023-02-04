@@ -53,9 +53,13 @@ table {
   box-sizing : border-box;
 }
 body{
+    justify-content: center;
+    display: flex;
+    align-items: center;
   font-family: 'Noto Sans KR:wght@700', sans-serif;
  color:${(props) => props.theme.Primary_1};
  font-size : 21px;
+ min-height: 100vh;
 }
 a{
   text-decoration : none;
