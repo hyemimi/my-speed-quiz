@@ -26,8 +26,8 @@ export default function Quiz({
       <Header>
         <H3>({count}/10)</H3>
         <CaptionDiv>
-          <Caption>{difficulty}</Caption>
-          <Caption>{category}</Caption>
+          <CaptionBox difficulty={difficulty}>{difficulty}</CaptionBox>
+          <CaptionBox>{category}</CaptionBox>
         </CaptionDiv>
         <h1>{question}</h1>
       </Header>
@@ -75,15 +75,28 @@ const Header = styled.div`
 `;
 const CaptionDiv = styled.div`
   display: flex;
+  width: auto;
   margin-bottom: 10px;
+  justify-content: center;
 `;
 const H3 = styled.h3`
   padding: 10px;
   margin: 30px;
 `;
-const Caption = styled.caption`
-  width: 100%;
+const CaptionBox = styled.div<{ difficulty?: string }>`
+  background-color: ${(props) =>
+    props.difficulty === "hard"
+      ? props.theme.Danger_2
+      : props.difficulty === "medium"
+      ? props.theme.Warning_2
+      : props.difficulty === "easy"
+      ? props.theme.Success_2
+      : props.theme.Primary_3};
+  width: auto;
+  padding: 5px;
   height: 100%;
+  border-radius: 10px;
+  margin-right: 30px;
 `;
 export const Button = styled.div`
   background-color: white;
