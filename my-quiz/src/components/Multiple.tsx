@@ -16,6 +16,11 @@ export default function Multiple({
   isAnswered,
 }: IMultiple) {
   const setCorrect = useSetRecoilState(CorrectState);
+  const arr = [...incorrect_answers, correct_answer];
+  const makeArr = (arr: string[]) => {
+    return arr.sort(() => Math.random() - 0.5);
+  };
+  const List = makeArr(arr);
   const onClick = (answer: string) => {
     if (isAnswered === false) {
       if (answer === correct_answer) {
@@ -29,12 +34,11 @@ export default function Multiple({
   };
   return (
     <Div>
-      {incorrect_answers.map((ans, idx) => (
+      {List.map((ans, idx) => (
         <Box onClick={() => onClick(ans)} key={idx}>
           {ans}
         </Box>
       ))}
-      <Box onClick={() => onClick(correct_answer)}>{correct_answer}</Box>
     </Div>
   );
 }
