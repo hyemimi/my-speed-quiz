@@ -92,6 +92,14 @@ const CaptionBox = styled.div<{ difficulty?: string }>`
       : props.difficulty === "easy"
       ? props.theme.Success_2
       : props.theme.Primary_3};
+  color: ${(props) =>
+    props.difficulty === "hard"
+      ? props.theme.Danger_1
+      : props.difficulty === "medium"
+      ? props.theme.Warning_1
+      : props.difficulty === "easy"
+      ? props.theme.Success_1
+      : props.theme.Primary_2};
   width: auto;
   padding: 5px;
   height: 100%;
