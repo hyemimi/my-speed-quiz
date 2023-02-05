@@ -1,11 +1,10 @@
 import { IQuestion } from "../routes/Pages/Question";
 import { useRecoilValue, useSetRecoilState } from "recoil";
-import { AnswerState, CountState } from "../atoms";
+import { CountState } from "../atoms";
 import styled from "styled-components";
 import Multiple from "./Multiple";
 import Ox from "./Ox";
 import React, { useState, useEffect } from "react";
-import { useNavigate, Link } from "react-router-dom";
 import Progressbar from "./Progressbar";
 import NextButton from "./NextButton";
 function Quiz({
@@ -16,13 +15,9 @@ function Quiz({
   correct_answer,
   incorrect_answers,
 }: IQuestion) {
-  const navigate = useNavigate();
   const count = useRecoilValue(CountState);
-
-  const [checked, setChecked] = useState<null | number>(null);
   const [isAnswered, setIsAnswered] = useState<boolean | null>(false);
   const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
-  const [total, setTotal] = useState(0);
 
   return (
     <>

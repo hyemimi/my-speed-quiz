@@ -17,10 +17,13 @@ export default function Multiple({
   isAnswered,
 }: IMultiple) {
   const setCorrect = useSetRecoilState(CorrectState);
+
   const arr = [...incorrect_answers, correct_answer];
   const makeArr = (arr: string[]) => {
+    // 배열을 섞습니다
     return arr.sort(() => Math.random() - 0.5);
   };
+
   const List = makeArr(arr);
   const onClick = (answer: string) => {
     if (isAnswered === false) {

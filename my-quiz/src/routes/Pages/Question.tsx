@@ -18,8 +18,6 @@ export interface IQuestion {
 
 function Question() {
   const [quizlist, setQuizList] = useState<null | IQuestion[]>(null);
-  /* const [total, setTotal] = useState(0);
-  const [flag, setFlag] = useState(false); */
   const count = useRecoilValue(CountState);
   const [timer, setTimer] = useRecoilState(TimeState);
   const [flag, setFlag] = useRecoilState(FlagState);

@@ -9,15 +9,15 @@ interface IProgress {
   isAnswered: boolean | null;
 }
 function Progressbar({ setIsAnswered, setIsCorrect, isAnswered }: IProgress) {
-  const progressTextRef = useRef(0);
   const [time, setTime] = useState(0);
-  const setTotal = useRecoilState(TimeState);
-
   useEffect(() => {
     if (time < 5) {
-      setTimeout(() => {
+      let timer = setTimeout(() => {
         setTime((time) => time + 1);
       }, 1000);
+      return () => {
+        clearTimeout(timer);
+      };
     } else {
       setTime(0);
       setIsAnswered(true);
@@ -44,20 +44,4 @@ const Bar = styled.div`
   background-color: rgb(62, 122, 235);
   height: 10px;
   border-radius: 1rem;
-`;
-
-const Div = styled.div`
-  /* Size */
-  width: 30px;
-  margin-left: 30px;
-
-  /* Content alignment */
-  display: flex;
-  flex-direction: row;
-
-  /* Styling */
-  color: white;
-  font-family: montserrat;
-  font-weight: bold;
-  font-size: 30px;
 `;
