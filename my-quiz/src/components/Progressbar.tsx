@@ -1,7 +1,8 @@
 import { motion, animate } from "framer-motion";
 import { useEffect, useState, useRef } from "react";
+import { useRecoilState } from "recoil";
 import styled from "styled-components";
-
+import { TimeState } from "../atoms";
 interface IProgress {
   setIsAnswered: any;
   setIsCorrect: any;
@@ -10,7 +11,7 @@ interface IProgress {
 function Progressbar({ setIsAnswered, setIsCorrect, isAnswered }: IProgress) {
   const progressTextRef = useRef(0);
   const [time, setTime] = useState(0);
-  const [progress, setProgress] = useState(0);
+  const setTotal = useRecoilState(TimeState);
 
   useEffect(() => {
     if (time < 5) {
@@ -23,7 +24,6 @@ function Progressbar({ setIsAnswered, setIsCorrect, isAnswered }: IProgress) {
       setIsCorrect(false);
     }
   }, [time]);
-  console.log(time);
 
   return (
     <Wrapper>

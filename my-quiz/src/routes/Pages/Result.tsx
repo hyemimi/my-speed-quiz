@@ -1,16 +1,20 @@
 import { useRecoilValue } from "recoil";
-import { CorrectState } from "../../atoms";
+import { CorrectState, TimeState } from "../../atoms";
 import { Button } from "../../components/Quiz";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 function Result() {
+  const total = useRecoilValue(TimeState);
+
   const correct = useRecoilValue(CorrectState);
   const navigate = useNavigate();
   return (
     <Wrapper>
       <H3>퀴즈 결과</H3>
       10문제 중 {correct}문제를 맞추셨습니다!
-      <caption>(총 소요시간 :)</caption>
+      <caption>
+        (총 소요시간 : {Math.floor(total / 60)}분 {total % 60}초)
+      </caption>
       <Button onClick={() => navigate("/")}>재도전!</Button>
     </Wrapper>
   );

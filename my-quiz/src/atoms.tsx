@@ -13,3 +13,13 @@ export const AnswerState = atom({
   key: "answer",
   default: "",
 });
+
+export const TimeState = atom({
+  key: "time",
+  default: 0,
+});
+
+export const FlagState = atom({
+  key: "flag",
+  default: false,
+});

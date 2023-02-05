@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { useSetRecoilState } from "recoil";
-import { AnswerState, CorrectState } from "../atoms";
-
+import { AnswerState, CorrectState, TimeState } from "../atoms";
+import { useState, useEffect } from "react";
 export default function Ox({
   correct_answer,
   setIsCorrect,
@@ -9,6 +9,9 @@ export default function Ox({
   isAnswered,
 }: any) {
   const setCorrect = useSetRecoilState(CorrectState);
+  const [time, setTime] = useState(0);
+  const setTotal = useSetRecoilState(TimeState);
+
   const onClick = (tag: string) => {
     if (isAnswered === false) {
       if (tag === correct_answer) {

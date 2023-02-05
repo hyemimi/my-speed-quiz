@@ -4,11 +4,11 @@ import { AnswerState, CountState } from "../atoms";
 import styled from "styled-components";
 import Multiple from "./Multiple";
 import Ox from "./Ox";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import Progressbar from "./Progressbar";
 import NextButton from "./NextButton";
-export default function Quiz({
+function Quiz({
   category,
   type,
   difficulty,
@@ -22,6 +22,7 @@ export default function Quiz({
   const [checked, setChecked] = useState<null | number>(null);
   const [isAnswered, setIsAnswered] = useState<boolean | null>(false);
   const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
+  const [total, setTotal] = useState(0);
 
   return (
     <>
@@ -69,6 +70,7 @@ export default function Quiz({
   );
 }
 
+export default React.memo(Quiz);
 const Card = styled.div`
   display: flex;
   flex-direction: column;

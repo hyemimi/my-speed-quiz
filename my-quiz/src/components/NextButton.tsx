@@ -1,9 +1,10 @@
 import { useRecoilValue, useSetRecoilState } from "recoil";
-import { CountState } from "../atoms";
+import { CountState, FlagState } from "../atoms";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 export default function NextButton() {
   const count = useRecoilValue(CountState);
+  const setFlag = useSetRecoilState(FlagState);
   const setCount = useSetRecoilState(CountState);
   const onClick = () => {
     setCount((oldcount) => oldcount + 1);
@@ -14,7 +15,7 @@ export default function NextButton() {
         <Button onClick={onClick}>Next Question!</Button>
       ) : (
         <Link to="/result">
-          <Button>Result</Button>
+          <Button onClick={() => setFlag(false)}>Result</Button>
         </Link>
       )}
     </>

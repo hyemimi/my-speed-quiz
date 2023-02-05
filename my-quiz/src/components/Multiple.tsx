@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { useSetRecoilState } from "recoil";
 import { AnswerState, CorrectState } from "../atoms";
+import { useEffect, useState } from "react";
 interface IMultiple {
   incorrect_answers: string[];
   correct_answer: string;
@@ -32,6 +33,16 @@ export default function Multiple({
       setIsAnswered(true);
     }
   };
+  const [time, setTime] = useState(0);
+
+  useEffect(() => {
+    if (isAnswered) {
+      setInterval(() => {
+        setTime((prev) => prev + 1);
+      }, 1000);
+    }
+  }, [time]);
+  console.log(time);
   return (
     <Div>
       {List.map((ans, idx) => (
