@@ -52,9 +52,9 @@ function Quiz({
             isAnswered={isAnswered}
           />
         )}
-        {isCorrect === true && <h3 style={{ color: "#33b54a" }}>Correct!</h3>}
+        {isCorrect === true && <h4 style={{ color: "#33b54a" }}>Correct!</h4>}
         {isCorrect === false && (
-          <h3 style={{ color: "#ff1d25" }}>Answer was '{correct_answer}' :P</h3>
+          <h4 style={{ color: "#ff1d25" }}>Answer was '{correct_answer}' :P</h4>
         )}
         {isAnswered && <NextButton />}
       </Card>
