@@ -46,11 +46,16 @@
 
 1. 클론
 ex) ```git clone git@github.com:hyemimi/8th-react-quest.git```
-2. 라이브러리 다운
+2. 프로젝트 이동
+  ```
+  cd 8th-react-quest
+  cd .\my-quiz\
+  ```
+3. 라이브러리 다운
    ```
    npm install
    ```
-3. 실행하기<br>
+4. 실행<br>
    ```npm start```
 
 # 💫 Page
