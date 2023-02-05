@@ -61,8 +61,9 @@ body{
  color:${(props) => props.theme.Primary_1};
  font-size : 21px;
  min-height: 100vh;
+ text-align: center;
 }
-.a{
+a{
   text-decoration : none;
   color : inherit;
 }

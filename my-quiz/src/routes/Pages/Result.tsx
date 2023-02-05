@@ -7,18 +7,27 @@ function Result() {
   const correct = useRecoilValue(CorrectState);
   const navigate = useNavigate();
   return (
-    <Div>
-      <h1>퀴즈 결과</h1>
-      <h3>10문제 중 {correct}문제를 맞추셨습니다! </h3>
+    <Wrapper>
+      <H3>퀴즈 결과</H3>
+      10문제 중 {correct}문제를 맞추셨습니다!
+      <caption>(총 소요시간 :)</caption>
       <Button onClick={() => navigate("/")}>재도전!</Button>
-    </Div>
+    </Wrapper>
   );
 }
 
-const Div = styled.div`
+const Wrapper = styled.div`
+  width: 1000px;
+  height: 500px;
+  max-width: 1000px;
+  display: flex;
+  padding: 200px;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 0 auto;
+`;
+const H3 = styled.h3`
+  margin-bottom: 70px;
 `;
 
 export default Result;

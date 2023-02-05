@@ -39,7 +39,6 @@ const Div = styled.div`
 `;
 
 const Box = styled.div`
-  text-align: center;
   align-items: center;
   width: 200px;
   height: 80px;

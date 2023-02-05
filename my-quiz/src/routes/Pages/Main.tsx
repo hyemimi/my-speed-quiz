@@ -13,7 +13,7 @@ function Main() {
   }, []);
   return (
     <Container>
-      <h1>프로그라피 8기 과제 퀴즈</h1>
+      <h3>프로그라피 8기 과제 퀴즈</h3>
       <Link to={"/question"}>
         <Button>시작하기!</Button>
       </Link>
