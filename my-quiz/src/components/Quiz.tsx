@@ -7,6 +7,7 @@ import Ox from "./Ox";
 import React, { useState, useEffect } from "react";
 import Progressbar from "./Progressbar";
 import NextButton from "./NextButton";
+
 function Quiz({
   category,
   type,
@@ -33,7 +34,7 @@ function Quiz({
             <CaptionBox difficulty={difficulty}>{difficulty}</CaptionBox>
             <CaptionBox>{category}</CaptionBox>
           </CaptionDiv>
-          <h1>{question}</h1>
+          <h1>{question.replaceAll("&quot;", '"')}</h1>
         </Header>
         {type === "boolean" ? (
           <Ox
@@ -51,13 +52,9 @@ function Quiz({
             isAnswered={isAnswered}
           />
         )}
-        {isCorrect === true && (
-          <caption style={{ color: "#33b54a" }}>Correct!</caption>
-        )}
+        {isCorrect === true && <h3 style={{ color: "#33b54a" }}>Correct!</h3>}
         {isCorrect === false && (
-          <caption style={{ color: "#ff1d25" }}>
-            Answer was '{correct_answer}' :P
-          </caption>
+          <h3 style={{ color: "#ff1d25" }}>Answer was '{correct_answer}' :P</h3>
         )}
         {isAnswered && <NextButton />}
       </Card>

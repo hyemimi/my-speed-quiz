@@ -21,7 +21,6 @@ function Question() {
   const [flag, setFlag] = useRecoilState(FlagState);
   useEffect(() => {
     fetchQuestions().then((res) => {
-      console.log(res.data.results);
       setQuizList(res.data.results);
     });
     setFlag(true);

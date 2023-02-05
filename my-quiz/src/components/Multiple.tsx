@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { useSetRecoilState } from "recoil";
 import { AnswerState, CorrectState } from "../atoms";
 import React, { useEffect, useState } from "react";
+
 interface IMultiple {
   incorrect_answers: string[];
   correct_answer: string;
