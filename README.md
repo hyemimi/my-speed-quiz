@@ -44,8 +44,9 @@
 
 # 💫 Getting Started (Installation)
 
-1. ```git clone ```
-2. 
+1. 클론
+ex) ```git clone git@github.com:hyemimi/8th-react-quest.git```
+2. 라이브러리 다운
    ```
    npm install
    ```
@@ -54,20 +55,23 @@
 
 # 💫 Page
 <div align="center">
-
+<img src="https://user-images.githubusercontent.com/103042868/216819227-07f45025-b5cd-4d68-b51a-0166311c2be3.png"/>
+<img src="https://user-images.githubusercontent.com/103042868/216819492-c2614a36-0a3d-473d-8a61-d78d4a66e46d.png" />
+<img src="https://user-images.githubusercontent.com/103042868/216819229-4c5615af-6ea4-4ce3-8f5e-85e0521190fd.png"/>
+<img src="https://user-images.githubusercontent.com/103042868/216819224-e18e7cdd-8e48-4025-bb61-7064132e36aa.png"/>
+<img src="https://user-images.githubusercontent.com/103042868/216819226-64febade-4bd0-4e9e-b5c8-e6c96fd3f32c.png"/>
+<img src="https://user-images.githubusercontent.com/103042868/216819222-f452a0b5-c2c1-424f-a97d-dbf0993c20ea.png"/>
 </div>
 
 
 # Contributing
-프로젝트에 기여하고 싶으신 분들은 아래 절차를 따라주시기 바랍니다.
+
 ```
     1. 프로젝트 fork
     2. feature branch 생성 (git checkout -b feature/name)
     3. commit (git commit -m "Add feature")
     4. push (git push origin feature/name)
     5. pull request 생성
-    
-    Pull request는 최대한 빨리 확인하도록 하겠습니다. 
 
 ```
 pull request 포함 문의사항은 [📧contact](#contact) 으로 연락 부탁드립니다.
