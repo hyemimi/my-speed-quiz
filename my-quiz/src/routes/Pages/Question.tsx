@@ -26,8 +26,8 @@ function Question() {
   }, []);
   return (
     <>
-      <Progressbar />
       <Wrapper>
+        
         {quizlist?.map(
           (quiz, idx) => idx + 1 === count && <Quiz key={count} {...quiz} />
         )}

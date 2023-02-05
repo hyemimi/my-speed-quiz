@@ -24,41 +24,48 @@ export default function Quiz({
   const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
 
   return (
-    <Card>
-      <Header>
-        <H3>({count}/10)</H3>
-        <CaptionDiv>
-          <CaptionBox difficulty={difficulty}>{difficulty}</CaptionBox>
-          <CaptionBox>{category}</CaptionBox>
-        </CaptionDiv>
-        <h1>{question}</h1>
-      </Header>
-      {type === "boolean" ? (
-        <Ox
-          correct_answer={correct_answer}
-          setIsAnswered={setIsAnswered}
-          setIsCorrect={setIsCorrect}
-          isAnswered={isAnswered}
-        />
-      ) : (
-        <Multiple
-          incorrect_answers={incorrect_answers}
-          correct_answer={correct_answer}
-          setIsAnswered={setIsAnswered}
-          setIsCorrect={setIsCorrect}
-          isAnswered={isAnswered}
-        />
-      )}
-      {isCorrect === true && (
-        <caption style={{ color: "#33b54a" }}>Correct!</caption>
-      )}
-      {isCorrect === false && (
-        <caption style={{ color: "#ff1d25" }}>
-          Answer was '{correct_answer}' :P
-        </caption>
-      )}
-      {isAnswered && <NextButton />}
-    </Card>
+    <>
+      <Progressbar
+        setIsAnswered={setIsAnswered}
+        setIsCorrect={setIsCorrect}
+        isAnswered={isAnswered}
+      />
+      <Card>
+        <Header>
+          <H3>({count}/10)</H3>
+          <CaptionDiv>
+            <CaptionBox difficulty={difficulty}>{difficulty}</CaptionBox>
+            <CaptionBox>{category}</CaptionBox>
+          </CaptionDiv>
+          <h1>{question}</h1>
+        </Header>
+        {type === "boolean" ? (
+          <Ox
+            correct_answer={correct_answer}
+            setIsAnswered={setIsAnswered}
+            setIsCorrect={setIsCorrect}
+            isAnswered={isAnswered}
+          />
+        ) : (
+          <Multiple
+            incorrect_answers={incorrect_answers}
+            correct_answer={correct_answer}
+            setIsAnswered={setIsAnswered}
+            setIsCorrect={setIsCorrect}
+            isAnswered={isAnswered}
+          />
+        )}
+        {isCorrect === true && (
+          <caption style={{ color: "#33b54a" }}>Correct!</caption>
+        )}
+        {isCorrect === false && (
+          <caption style={{ color: "#ff1d25" }}>
+            Answer was '{correct_answer}' :P
+          </caption>
+        )}
+        {isAnswered && <NextButton />}
+      </Card>
+    </>
   );
 }
 

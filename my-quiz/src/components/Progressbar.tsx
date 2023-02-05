@@ -2,26 +2,32 @@ import { motion, animate } from "framer-motion";
 import { useEffect, useState, useRef } from "react";
 import styled from "styled-components";
 
-function Progressbar() {
+interface IProgress {
+  setIsAnswered: any;
+  setIsCorrect: any;
+  isAnswered: boolean | null;
+}
+function Progressbar({ setIsAnswered, setIsCorrect, isAnswered }: IProgress) {
   const progressTextRef = useRef(0);
   const [time, setTime] = useState(0);
   const [progress, setProgress] = useState(0);
-  let percent = 0.2;
+
   useEffect(() => {
     if (time < 5) {
       setTimeout(() => {
         setTime((time) => time + 1);
       }, 1000);
-    }
-    if (time === 5) {
+    } else {
       setTime(0);
+      setIsAnswered(true);
+      setIsCorrect(false);
     }
   }, [time]);
   console.log(time);
 
   return (
     <Wrapper>
-      <Bar style={{ width: `${time * 200}px` }}></Bar>
+      {!isAnswered && <Bar style={{ width: `${time * 200}px` }}></Bar>}
     </Wrapper>
   );
 }
