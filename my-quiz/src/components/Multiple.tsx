@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { useSetRecoilState } from "recoil";
 import { AnswerState, CorrectState } from "../atoms";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 interface IMultiple {
   incorrect_answers: string[];
   correct_answer: string;
@@ -9,7 +9,7 @@ interface IMultiple {
   setIsCorrect: any;
   isAnswered: any;
 }
-export default function Multiple({
+function Multiple({
   incorrect_answers,
   correct_answer,
   setIsAnswered,
@@ -17,14 +17,18 @@ export default function Multiple({
   isAnswered,
 }: IMultiple) {
   const setCorrect = useSetRecoilState(CorrectState);
-
   const arr = [...incorrect_answers, correct_answer];
+  const [List, setList] = useState<string[] | null>(null);
+
   const makeArr = (arr: string[]) => {
     // 배열을 섞습니다
     return arr.sort(() => Math.random() - 0.5);
   };
-
-  const List = makeArr(arr);
+  //const List = makeArr(arr);
+  useEffect(() => {
+    let tempList = makeArr(arr);
+    setList(tempList);
+  }, []);
   const onClick = (answer: string) => {
     if (isAnswered === false) {
       if (answer === correct_answer) {
@@ -36,26 +40,32 @@ export default function Multiple({
       setIsAnswered(true);
     }
   };
-  const [time, setTime] = useState(0);
+  // const [time, setTime] = useState(0);
 
-  useEffect(() => {
+  /* useEffect(() => {
     if (isAnswered) {
       setInterval(() => {
         setTime((prev) => prev + 1);
       }, 1000);
     }
-  }, [time]);
-  console.log(time);
+  }, [time]); */
   return (
     <Div>
-      {List.map((ans, idx) => (
-        <Box onClick={() => onClick(ans)} key={idx}>
+      {List?.map((ans, idx) => (
+        <Box
+          isAnswered={isAnswered}
+          ans={ans}
+          correct_answer={correct_answer}
+          onClick={() => onClick(ans)}
+          key={idx}
+        >
           {ans}
         </Box>
       ))}
     </Div>
   );
 }
+export default React.memo(Multiple);
 
 const Div = styled.div`
   display: grid;
@@ -64,12 +74,20 @@ const Div = styled.div`
   grid-template-columns: repeat(2, 1fr);
 `;
 
-const Box = styled.div`
+const Box = styled.div<{
+  isAnswered: any;
+  ans: string;
+  correct_answer: string;
+}>`
   width: 250px;
   height: 60px;
   padding: 20px;
   text-align: center;
-
+  background-color: ${(props) =>
+    props.isAnswered &&
+    (props.ans !== props.correct_answer
+      ? props.theme.Danger_2
+      : props.theme.Success_2)};
   border-radius: 30px;
   border: 1px solid gray;
   margin: 20px;

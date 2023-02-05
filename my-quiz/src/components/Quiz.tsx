@@ -65,7 +65,7 @@ function Quiz({
   );
 }
 
-export default React.memo(Quiz);
+export default Quiz;
 const Card = styled.div`
   display: flex;
   flex-direction: column;
