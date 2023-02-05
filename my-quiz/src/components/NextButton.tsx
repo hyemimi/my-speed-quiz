@@ -27,7 +27,6 @@ export const Button = styled.div`
   width: 350px;
   height: 60px;
   margin-top: 10px;
-
   padding: 16px;
   text-align: center;
   border-radius: 10px;

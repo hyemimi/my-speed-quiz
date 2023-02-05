@@ -56,26 +56,29 @@ body{
   justify-content: center;
   display: flex;
   align-items: center;
-  font-family: 'Noto Sans KR:wght@700', sans-serif;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight : 700;
  color:${(props) => props.theme.Primary_1};
  font-size : 21px;
  min-height: 100vh;
 }
-a{
+.a{
   text-decoration : none;
   color : inherit;
 }
 h1{
-    font-family: 'Noto Sans KR:wght@500', sans-serif;
+   font-weight : 500;
     font-size : 48px;
 }
 h3{
-    font-family: 'Noto Sans KR:wght@700', sans-serif;
+   font-weight : bold;
     font-size : 32px;
 }
 caption{
-    font-family: 'Noto Sans KR:wght@500', sans-serif;
+  font-weight : 500;
     font-size : 19px;
+      display: table-caption;
+      text-align: center;
 }
 button {
   border : ${(props) => props.theme.Primary_1};

@@ -81,7 +81,7 @@ const H3 = styled.h3`
   padding: 10px;
   margin: 30px;
 `;
-const Caption = styled.div`
+const Caption = styled.caption`
   width: 100%;
   height: 100%;
 `;
