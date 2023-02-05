@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { useRecoilValue } from "recoil";
 import { CountState } from "../../atoms";
 import styled from "styled-components";
+import Progressbar from "../../components/Progressbar";
 export interface IQuestion {
   category: string;
   type: string;
@@ -24,11 +25,14 @@ function Question() {
     fetchQuestions().then((res) => setQuizList(res.data.results));
   }, []);
   return (
-    <Wrapper>
-      {quizlist?.map(
-        (quiz, idx) => idx + 1 === count && <Quiz key={count} {...quiz} />
-      )}
-    </Wrapper>
+    <>
+      <Progressbar />
+      <Wrapper>
+        {quizlist?.map(
+          (quiz, idx) => idx + 1 === count && <Quiz key={count} {...quiz} />
+        )}
+      </Wrapper>
+    </>
   );
 }
 

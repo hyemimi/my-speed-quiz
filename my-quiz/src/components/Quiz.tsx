@@ -4,8 +4,9 @@ import { AnswerState, CountState } from "../atoms";
 import styled from "styled-components";
 import Multiple from "./Multiple";
 import Ox from "./Ox";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import Progressbar from "./Progressbar";
 import NextButton from "./NextButton";
 export default function Quiz({
   category,
@@ -21,6 +22,7 @@ export default function Quiz({
   const [checked, setChecked] = useState<null | number>(null);
   const [isAnswered, setIsAnswered] = useState<boolean | null>(false);
   const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
+
   return (
     <Card>
       <Header>
