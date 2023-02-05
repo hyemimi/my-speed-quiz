@@ -1,6 +1,6 @@
 import { useRecoilValue } from "recoil";
-import { CorrectState, TimeState } from "../../atoms";
-import { Button } from "../../components/Quiz";
+import { CorrectState, TimeState } from "../atoms";
+import { Button } from "../components/Quiz";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { useEffect } from "react";

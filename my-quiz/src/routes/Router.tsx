@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Main from "./Pages/Main";
-import Question from "./Pages/Question";
-import Result from "./Pages/Result";
+import Main from "../Pages/Main";
+import Question from "../Pages/Question";
+import Result from "../Pages/Result";
 export default function Router() {
   return (
     <>

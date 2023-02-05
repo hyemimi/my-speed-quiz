@@ -1,12 +1,10 @@
-import { useQuery } from "@tanstack/react-query";
-import { fetchQuestions } from "../../api";
-import Quiz from "../../components/Quiz";
-import { useState, useEffect } from "react";
-import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
-import { CountState, FlagState, TimeState } from "../../atoms";
+import { fetchQuestions } from "../api";
+import Quiz from "../components/Quiz";
+import React, { useState, useEffect } from "react";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { CountState, FlagState, TimeState } from "../atoms";
 import styled from "styled-components";
-import Progressbar from "../../components/Progressbar";
-import { useRef } from "react";
+
 export interface IQuestion {
   category: string;
   type: string;
@@ -22,7 +20,10 @@ function Question() {
   const [timer, setTimer] = useRecoilState(TimeState);
   const [flag, setFlag] = useRecoilState(FlagState);
   useEffect(() => {
-    fetchQuestions().then((res) => setQuizList(res.data.results));
+    fetchQuestions().then((res) => {
+      console.log(res.data.results);
+      setQuizList(res.data.results);
+    });
     setFlag(true);
   }, []);
 
@@ -47,7 +48,7 @@ function Question() {
   );
 }
 
-export default Question;
+export default React.memo(Question);
 const Wrapper = styled.div`
   width: 1000px;
   height: 700px;

@@ -1,8 +1,5 @@
-import { motion, animate } from "framer-motion";
-import { useEffect, useState, useRef } from "react";
-import { useRecoilState } from "recoil";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
-import { TimeState } from "../atoms";
 interface IProgress {
   setIsAnswered: any;
   setIsCorrect: any;

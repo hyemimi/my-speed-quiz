@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { useSetRecoilState } from "recoil";
-import { CorrectState, CountState, FlagState, TimeState } from "../../atoms";
+import { CorrectState, CountState, FlagState, TimeState } from "../atoms";
 import { useEffect } from "react";
 function Main() {
   const setCorrect = useSetRecoilState(CorrectState);

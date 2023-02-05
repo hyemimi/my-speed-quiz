@@ -1,4 +1,4 @@
-import { IQuestion } from "../routes/Pages/Question";
+import { IQuestion } from "../Pages/Question";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import { CountState } from "../atoms";
 import styled from "styled-components";
@@ -65,7 +65,7 @@ function Quiz({
   );
 }
 
-export default Quiz;
+export default React.memo(Quiz);
 const Card = styled.div`
   display: flex;
   flex-direction: column;

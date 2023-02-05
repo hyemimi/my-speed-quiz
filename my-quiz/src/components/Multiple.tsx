@@ -17,17 +17,14 @@ function Multiple({
   isAnswered,
 }: IMultiple) {
   const setCorrect = useSetRecoilState(CorrectState);
-  const arr = [...incorrect_answers, correct_answer];
   const [List, setList] = useState<string[] | null>(null);
-
   const makeArr = (arr: string[]) => {
     // 배열을 섞습니다
     return arr.sort(() => Math.random() - 0.5);
   };
-  //const List = makeArr(arr);
   useEffect(() => {
-    let tempList = makeArr(arr);
-    setList(tempList);
+    let arr = [...incorrect_answers, correct_answer];
+    setList(makeArr(arr));
   }, []);
   const onClick = (answer: string) => {
     if (isAnswered === false) {
@@ -40,15 +37,7 @@ function Multiple({
       setIsAnswered(true);
     }
   };
-  // const [time, setTime] = useState(0);
 
-  /* useEffect(() => {
-    if (isAnswered) {
-      setInterval(() => {
-        setTime((prev) => prev + 1);
-      }, 1000);
-    }
-  }, [time]); */
   return (
     <Div>
       {List?.map((ans, idx) => (
@@ -65,7 +54,7 @@ function Multiple({
     </Div>
   );
 }
-export default React.memo(Multiple);
+export default Multiple;
 
 const Div = styled.div`
   display: grid;
@@ -80,7 +69,7 @@ const Box = styled.div<{
   correct_answer: string;
 }>`
   width: 250px;
-  height: 60px;
+  height: auto;
   padding: 20px;
   text-align: center;
   background-color: ${(props) =>
