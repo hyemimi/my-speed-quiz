@@ -17,7 +17,8 @@ function Main() {
   }, []);
   return (
     <Container>
-      <h3>프로그라피 8기 과제 퀴즈</h3>
+      <h3>✌️🧚‍♀️스피드퀴즈🧜‍♀️🏃‍♀️</h3>
+
       <Link to={"/question"}>
         <Button>시작하기!</Button>
       </Link>
@@ -27,17 +28,17 @@ function Main() {
 
 const Container = styled.div`
   flex-direction: column;
-  width: 100%;
+  height: 100%;
 `;
 
 const Button = styled.div`
-  background-color: white;
-  border: 1px solid ${(props) => props.theme.Primary_1};
+  background-color: #f7d794;
+  color: #596275;
+  border: none;
   width: 350px;
   height: 60px;
   margin: 100px;
   padding: 16px;
   text-align: center;
-  border-radius: 10px;
 `;
 export default Main;

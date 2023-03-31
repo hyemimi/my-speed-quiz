@@ -1,6 +1,5 @@
 import { useRecoilValue } from "recoil";
 import { CorrectState, TimeState } from "../atoms";
-import { Button } from "../components/Quiz";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { useEffect } from "react";
@@ -36,3 +35,15 @@ const H3 = styled.h3`
 `;
 
 export default Result;
+
+const Button = styled.button`
+  background-color: #f7d794;
+  color: #596275;
+  border: none;
+  width: 350px;
+  height: 60px;
+  margin: 100px;
+  padding: 16px;
+  text-align: center;
+  cursor: pointer;
+`;
