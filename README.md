@@ -68,7 +68,6 @@ cd .\my-quiz\
 # 💫 Page
 
 <div align="center">
-<img src="https://user-images.githubusercontent.com/103042868/216819227-07f45025-b5cd-4d68-b51a-0166311c2be3.png"/>
 <img src="https://user-images.githubusercontent.com/103042868/216819492-c2614a36-0a3d-473d-8a61-d78d4a66e46d.png" />
 <img src="https://user-images.githubusercontent.com/103042868/216819229-4c5615af-6ea4-4ce3-8f5e-85e0521190fd.png"/>
 <img src="https://user-images.githubusercontent.com/103042868/216819224-e18e7cdd-8e48-4025-bb61-7064132e36aa.png"/>
