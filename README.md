@@ -20,7 +20,7 @@ Start here 🏃‍♀️ https://hyemimi.github.io/my-speed-quiz/
 
 <br>
 
-##### 카테고리와 난이도는 모두 랜덤입니다 :)
+##### 카테고리와 난이도는 모두 랜덤입니다
 
 ##### 5초안에 답을 클릭하면 됩니다. (답을 고르지 못하면 오답입니다)
 
@@ -52,12 +52,12 @@ Start here 🏃‍♀️ https://hyemimi.github.io/my-speed-quiz/
 # 💫 Getting Started (Installation)
 
 1. 클론
-   ex) `git clone git@github.com:hyemimi/8th-react-quest.git`
+   
 2. 프로젝트 이동
 
 ```
-cd 8th-react-quest
-cd .\my-quiz\
+cd my-speed-quiz
+
 ```
 
 3. 라이브러리 다운
